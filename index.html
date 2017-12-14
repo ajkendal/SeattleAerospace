@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="Alchemy_js/0.4.1/styles/vendor.css" />
+    <link rel="stylesheet" href="Alchemy_js/0.4.1/alchemy.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/papaparse.min.js"></script>
+    <script type="text/javascript" src="js/converter.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#div1").load("csv/locus_aerospace_edges.csv", function(data) {
+                //console.log(data);
+                loadEdges(data);
+            });
+            $('#div1').load("csv/locus_aerospace_nodes.csv", function(data) {
+                //console.log(data);
+                loadNodes(data);
+            });
+        });
+    </script>
+    <script type="text/javascript" src="js/converter.js"></script>
+</head>
+
+<body>
+    <div class="alchemy" id="alchemy"></div>
+    <div id="div1" style="display: none;"></div>
+    <script type="text/javascript" src="Alchemy_js/0.4.1/scripts/vendor.js"></script>
+    <script type="text/javascript" src="Alchemy_js/0.4.1/alchemy.js"></script>
+    <script type="text/javascript">
+        function loadGraph(combinedData) {
+            windowHeight = (window.innerHeight * .70);
+            windowWidth = (window.innerWidth * .80);
+            //console.log(combinedData);
+            var config = {
+                dataSource: combinedData,
+                forceLocked: false,
+                nodeCaption: 'id',
+                edgeCaption: 'label',
+                nodeTypes: {
+                    "activity": ["1.1.1",
+                                 "1.1.2",
+                                 "1.2.1",
+                                 "1.2.2",
+                                 "2.1.2",
+                                 "2.1.3",
+                                 "2.2.2",
+                                 "2.2.3",
+                                 "3.1.2",
+                                 "3.3.2",
+                                 "4.1.2"],
+                    "object": ["B1iii",
+                               "B2div",
+                               "B2i",
+                               "B2ii",
+                               "B3iii",
+                               "B4div",
+                               "B4ii",
+                               "Bdiv",
+                               "C4iii",
+                               "D3ii",
+                               "Div",
+                               "F"]
+                },
+                nodeStyle: {
+                    "all": { borderWidth: 8, radius: 12, color: null},
+                    "1.1.1": { borderColor: "#990099"},
+                    "1.1.2": { borderColor: "#FF00FF"},
+                    "1.2.1": { borderColor: "#E60073"},
+                    "1.2.2": { borderColor: "#FF3399"},
+                    "2.1.2": { borderColor: "#FF6600"},
+                    "2.1.3": { borderColor: "#FFA366"},
+                    "2.2.2": { borderColor: "#E6E600"},
+                    "2.2.3": { borderColor: "#FFFF33"},
+                    "3.1.2": { borderColor: "#39E600"},
+                    "3.3.2": { borderColor: "#66FF33"},
+                    "4.1.2": { borderColor: "#00FFAA"},
+                    "B1iii": {color: "#00B3B3"},
+                    "B2div": {color: "#006BB3"},
+                    "B2i": {color: "#1AA3FF"},
+                    "B2ii": {color: "#80CCFF"},
+                    "B3iii": {color: "#6600CC"},
+                    "B4div": {color: "#8600B3"},
+                    "B4ii": {color: "#CC33FF"},
+                    "Bdiv": {color: "#FF00AA"},
+                    "C4iii": {color: "#FF0000"},
+                    "D3ii": {color: "#FF471A"},
+                    "Div": {color: "#FFCC00"},
+                    "F": {color: "#CCE6FF"}
+                },
+                edgeTypes: {
+                    "label": ["AP",
+                              "Input",
+                              "Subject"]
+                },
+                edgeStyle: {
+                    "AP": {
+                        color: "#FFFFFF",
+                        opacity: .6,
+                        width: 5,
+                        selected: { opacity: 1 },
+                        highlighted: { opacity: 1 },
+                        hidden: { opacity: 0 }
+                    },
+                    "Input": {
+                        color: "#999999",
+                        opacity: .7,
+                        width: 5,
+                        selected: { opacity: 1 },
+                        highlighted: { opacity: 1 },
+                        hidden: { opacity: 0 }
+                    },
+                    "Subject": {
+                        color: "#333333",
+                        opacity: .8,
+                        width: 5,
+                        selected: { opacity: 1 },
+                        highlighted: { opacity: 1 },
+                        hidden: { opacity: 0 }
+                    }
+                },
+                graphHeight: function() { return windowHeight },
+                graphWidth: function() { return windowWidth },
+                zoomControls: true,
+                backgroundColour: "#CCCCCC"
+            };
+            //console.log(config);
+            alchemy = new Alchemy(config)
+            //console.log (alchemy);
+        };
+    </script>
+</body>
+</html>
+        
