@@ -1496,8 +1496,8 @@
     nodeStyle: {
       "all": {
         "radius": 10,
-        "color": "#68B9FE",
-        "borderColor": "#127DC1",
+        "color": null,
+        "borderColor": null,
         "borderWidth": function(d, radius) {
           return radius / 3;
         },
@@ -1978,16 +1978,21 @@
               return inp;
             };
           };
-          nodeTypeKey = _.keys(conf.nodeTypes)[0];
-          nodeType = node.getProperties()[nodeTypeKey];
-          if (conf.nodeStyle[nodeType] === void 0) {
-            nodeType = "all";
+          nodeTypeKey = _.keys(conf.nodeTypes);
+            
+          for (var x = 0; x < nodeTypeKey.length; x++){
+              nodeType = node.getProperties()[nodeTypeKey[x]];
+              if (conf.nodeStyle[nodeType] === void 0) {
+                nodeType = "all";
+              }
+              typedStyle = _.assign(_.cloneDeep(defaultStyle), conf.nodeStyle[nodeType]);
+              style = _.merge(typedStyle, conf.nodeStyle[nodeType][node._state]);
+              if (x === 0)
+                  stroke = toFunc(style.borderColor);
+              else
+                  fill = toFunc(style.color);
           }
-          typedStyle = _.assign(_.cloneDeep(defaultStyle), conf.nodeStyle[nodeType]);
-          style = _.assign(typedStyle, conf.nodeStyle[nodeType][node._state]);
           radius = toFunc(style.radius);
-          fill = toFunc(style.color);
-          stroke = toFunc(style.borderColor);
           strokeWidth = toFunc(style.borderWidth);
           svgStyles = {};
           svgStyles["radius"] = radius(d);
@@ -2833,7 +2838,6 @@
           if (_.isPlainObject(conf.nodeTypes)) {
             lookup = Object.keys(this.a.conf.nodeTypes);
             types = _.values(conf.nodeTypes);
-              console.log(types);
             nodeType = this._properties[lookup];
           } else if (typeof conf.nodeTypes === 'string') {
             nodeType = this._properties[conf.nodeTypes];
