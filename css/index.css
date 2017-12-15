@@ -55,8 +55,12 @@ html, body{
 }
 .title_box h1, 
 .title_box h3 {
+    font-size: 500%;
     margin: 0;
+    color: #1a1a1a;
+    text-shadow: 3px 3px 5px #666666;
 }
 .title_box h3 {
+    font-size: 300%;
     padding-bottom: 1%;
 }
