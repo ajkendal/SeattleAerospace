@@ -1072,7 +1072,7 @@
           return this._clustering.layout.linkDistancefn(edge);
         };
       } else if (conf.linkDistancefn === 'default') {
-        this._linkDistancefn = function(edge) {
+          this._linkDistancefn = function(edge) {
           return 1 / (this.k * 50);
         };
       } else if (typeof conf.linkDistancefn === 'number') {

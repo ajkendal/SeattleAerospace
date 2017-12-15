@@ -63,7 +63,7 @@
                                "F"]
                 },
                 nodeStyle: {
-                    "all": { borderWidth: 8, radius: 12, color: null},
+                    "all": { borderWidth: 5, radius: 11},
                     "1.1.1": { borderColor: "#990099"},
                     "1.1.2": { borderColor: "#FF00FF"},
                     "1.2.1": { borderColor: "#E60073"},
@@ -119,14 +119,15 @@
                         hidden: { opacity: 0 }
                     }
                 },
+                backgroundColour: "#111111",
                 graphHeight: function() { return windowHeight },
                 graphWidth: function() { return windowWidth },
-                zoomControls: true,
-                backgroundColour: "#CCCCCC"
+                initialScale: .5,
+                initialTranslate: [200,200]
             };
             //console.log(config);
             alchemy = new Alchemy(config)
-            //console.log (alchemy);
+            console.log (alchemy);
         };
     </script>
 </body>
