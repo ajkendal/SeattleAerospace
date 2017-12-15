@@ -976,6 +976,16 @@
         }
         return this._zoomBehavior.scale(scale).translate([x, y]);
       },
+      toggleControlDash: function() {
+          console.log("here");
+        var offCanvas;
+        offCanvas = a.dash.classed("off-canvas") || a.dash.classed("initial");
+        return a.dash.classed({
+          "off-canvas": !offCanvas,
+          "initial": false,
+          "on-canvas": offCanvas
+        });
+      },
       nodeDragStarted: function(d, i) {
         d3.event.preventDefault;
         d3.event.sourceEvent.stopPropagation();
@@ -1490,7 +1500,8 @@
     nodeFilters: false,
     edgesToggle: false,
     nodesToggle: false,
-    zoomControls: false,
+    zoomControls: true,
+    showControlDash: true,
     nodeCaption: 'caption',
     nodeCaptionsOnByDefault: false,
     nodeStyle: {

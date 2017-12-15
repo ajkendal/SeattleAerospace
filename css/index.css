@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
 html, body{
+    font-family: 'Source Sans Pro', sans-serif;
 	background: #F2F2F2;
 	margin: 0;
 	padding: 0;
@@ -45,4 +48,7 @@ html, body{
 .title_box {
     text-align: center;
     padding: 2%;
+}
+.onLoadTable {
+    width: 50%;
 }

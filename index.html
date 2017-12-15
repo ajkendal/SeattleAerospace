@@ -28,7 +28,17 @@
     </div>
     <div class="alchemy" id="alchemy"></div>
     <div id="div1" style="display: none;"></div>
-    <div id="data_box" class="data_box"></div>
+    <div id="data_box" class="data_box">
+        <table class="onLoadTable">
+            <tr>
+                <th colspan="2">Controls</th>
+            </tr>
+            <tr>
+                <td><b>Zoom:</b></td>
+                <td>Scroll Wheel</td>
+            </tr>
+        </table>
+    </div>
     <script type="text/javascript" src="Alchemy_js/0.4.1/scripts/vendor.js"></script>
     <script type="text/javascript" src="Alchemy_js/0.4.1/alchemy.js"></script>
     <script type="text/javascript">
@@ -127,6 +137,7 @@
                 graphHeight: function() { return windowHeight },
                 graphWidth: function() { return windowWidth },
                 initialScale: .4,
+                zoomControls: true,
                 initialTranslate: [200,200],
                 edgeClick: function(edge){ 
                     edgeBox += ('<table class="edgeClass">' +
@@ -186,10 +197,9 @@
                                                 '<br />Label: ' + current.label + '</td>' + 
                                             '</tr>');
                             }
-                            console.log(current);
+                            //console.log(current);
                         }
                     }
-                        
                     nodeBox += '</table>';
                     dataBox.innerHTML = nodeBox;
                     //console.log(node);
