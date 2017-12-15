@@ -63,6 +63,7 @@ for (var x = 0; x < nodeTypeKey.length; x++){
 * JavaScript
 * Ajax
 * jQuery
+* [Brackets](http://brackets.io/)
 
 ### Developers
 * Amanda J. Kendal-Brown
