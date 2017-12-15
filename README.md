@@ -1,7 +1,30 @@
 # Seattle Aerospace
 ## Network Graph for Seattle's Aerospace Industry 
 
-### Design and Implementation
+### Design Steps
+
+1. Review the Data
+    * One Excel File with Two Sheets, Nodes and Edges.
+    * No (x,y) positions given.
+    * Some Nodes Do not have edges.
+    
+2. Search for the best Graphing API using JavaScript to work with dataset
+    * [D3](https://d3js.org/)
+    * [Alchemy.js](http://graphalchemist.github.io/Alchemy/#/)
+    * [Google Charts](https://developers.google.com/chart/)
+    
+3. Convert .xlsx -> .csv
+
+4. Setup index.html
+
+5. Convert .csv -> JSON via Papa Parse
+
+6. Call the loadGraph function with the Data
+
+7. Style and Update
+    * Some functions in Alchemy.js needed to be updated
+
+8. Clean and Test
 
 ### Upgrading the Application
 
