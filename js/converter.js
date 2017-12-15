@@ -17,10 +17,10 @@ function loadNodes(data){
     }).data;
     
     //console.log(nodes);
-    combineCSV();
+    combineCSV(edges, nodes);
 }
 
-function combineCSV(){
+function combineCSV(edges, nodes){
     combinedData = { "nodes": nodes,
                      "edges": edges
                     };

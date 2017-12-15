@@ -20,13 +20,14 @@ html, body{
     margin: 0 auto;
     padding: 2%;
 }
-#data_box th, #data_box td {
+#data_box th, #data_box td,
+.title_box th, .title_box td {
     border: 1px solid black;
     text-align: center;
     border-collapse: collapse;
     width: 50%;
 }
-#data_box table {
+#data_box table, .title_box table {
     margin: 0 auto;
     border: 5px solid; 
     border-radius: 5px;
@@ -35,7 +36,7 @@ html, body{
     border-right-color: #666666;
     border-top-color: #999999;
 }
-#data_box th {
+#data_box th, .title_box th {
     background: #000000;
     color: #FFFFFF;
 }
@@ -50,5 +51,12 @@ html, body{
     padding: 2%;
 }
 .onLoadTable {
-    width: 50%;
+    width: 40%;
+}
+.title_box h1, 
+.title_box h3 {
+    margin: 0;
+}
+.title_box h3 {
+    padding-bottom: 1%;
 }

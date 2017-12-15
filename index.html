@@ -24,20 +24,33 @@
 
 <body>
     <div class="title_box">
-        <h1>Seattle Aerospace</h1>
-    </div>
-    <div class="alchemy" id="alchemy"></div>
-    <div id="div1" style="display: none;"></div>
-    <div id="data_box" class="data_box">
+        <h1>Seattle Aerospace Data</h1>
+        <h3>Network Graph</h3>
         <table class="onLoadTable">
             <tr>
                 <th colspan="2">Controls</th>
             </tr>
             <tr>
-                <td><b>Zoom:</b></td>
+                <td><b>Zoom</b></td>
                 <td>Scroll Wheel</td>
             </tr>
+            <tr>
+                <td><b>Node/Edge Mouse Hover</b></td>
+                <td>Node ID or Edge Label</td>
+            </tr>
+            <tr>
+                <td><b>Node/Edge Left Click</b></td>
+                <td>Data Info</td>
+            </tr>
+            <tr>
+                <td colspan="2"><a href="https://github.com/ajkendal/SeattleAerospace">Link to GitHub Repository</a></td>
+            </tr>
         </table>
+    </div>
+    <div class="alchemy" id="alchemy"></div>
+    <div id="div1" style="display: none;"></div>
+    <div id="data_box" class="data_box">
+        
     </div>
     <script type="text/javascript" src="Alchemy_js/0.4.1/scripts/vendor.js"></script>
     <script type="text/javascript" src="Alchemy_js/0.4.1/alchemy.js"></script>
@@ -158,6 +171,7 @@
                                 '</tr>' +
                             '</table>');
                     dataBox.innerHTML = edgeBox;
+                    $('html,body').animate({scrollTop: $(".data_box").offset().top});
                     //console.log(edge);
                     edgeBox = "";
                 },
@@ -202,6 +216,7 @@
                     }
                     nodeBox += '</table>';
                     dataBox.innerHTML = nodeBox;
+                    $('html,body').animate({scrollTop: $(".data_box").offset().top});
                     //console.log(node);
                     nodeBox = "";
                 }
