@@ -17,12 +17,12 @@
 
 4. Setup index.html
 
-5. Convert .csv -> JSON via Papa Parse
+5. Convert .csv -> JSON via [Papa Parse](http://papaparse.com)
 
 6. Call the loadGraph function with the Data
 
 7. Style and Update
-    * Some functions in Alchemy.js needed to be updated
+    * Some functions in [Alchemy.js](http://graphalchemist.github.io/Alchemy/#/) needed to be updated
 
 8. Clean and Test
 

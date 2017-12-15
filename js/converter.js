@@ -17,13 +17,17 @@ function loadNodes(data){
     }).data;
     
     //console.log(nodes);
-    combineCSV(edges, nodes);
+    if (edges.length === 0 || nodes.length === 0)
+        location.reload();
+    else
+        combineCSV();
 }
 
-function combineCSV(edges, nodes){
+function combineCSV(){
     combinedData = { "nodes": nodes,
                      "edges": edges
                     };
     //console.log(JSON.stringify(combinedData));
+    
     loadGraph(combinedData);
 }
