@@ -23,18 +23,22 @@
 </head>
 
 <body>
+    <div class="title_box">
+        <h1>Seattle Aerospace</h1>
+    </div>
     <div class="alchemy" id="alchemy"></div>
     <div id="div1" style="display: none;"></div>
+    <div id="data_box" class="data_box"></div>
     <script type="text/javascript" src="Alchemy_js/0.4.1/scripts/vendor.js"></script>
     <script type="text/javascript" src="Alchemy_js/0.4.1/alchemy.js"></script>
     <script type="text/javascript">
+        var edgeBox = "" , nodeBox = "", dataBox = document.getElementById('data_box');
         function loadGraph(combinedData) {
             windowHeight = (window.innerHeight * .70);
             windowWidth = (window.innerWidth * .80);
             //console.log(combinedData);
             var config = {
                 dataSource: combinedData,
-                forceLocked: false,
                 nodeCaption: 'id',
                 edgeCaption: 'label',
                 nodeTypes: {
@@ -122,12 +126,79 @@
                 backgroundColour: "#111111",
                 graphHeight: function() { return windowHeight },
                 graphWidth: function() { return windowWidth },
-                initialScale: .5,
-                initialTranslate: [200,200]
+                initialScale: .4,
+                initialTranslate: [200,200],
+                edgeClick: function(edge){ 
+                    edgeBox += ('<table class="edgeClass">' +
+                                '<tr>' +
+                                   '<th colspan="2">Edge</th>' +
+                                '</tr>' +
+                                '<tr>' +
+                                    '<td>Type</td>' +
+                                    '<td>' + edge._properties.type + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                    '<td>Source</td>' +
+                                    '<td>' + edge._properties.source + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                    '<td>Target</td>' +
+                                    '<td>' + edge._properties.target + '</td>' +
+                                '</tr>' +
+                            '</table>');
+                    dataBox.innerHTML = edgeBox;
+                    //console.log(edge);
+                    edgeBox = "";
+                },
+                nodeClick: function(node){ 
+                    nodeBox += ('<table class="nodeClass">' +
+                                '<tr>' +
+                                   '<th colspan="2">Node: ' + node._properties.id + '</th>' +
+                                '</tr>' +
+                                '<tr>' +
+                                   '<td colspan="2">' + node._properties.label + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                    '<td>Activity</td>' +
+                                    '<td>' + node._properties.activity + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                    '<td>Object</td>' +
+                                    '<td>' + node._properties.object + '</td>' +
+                                '</tr>');
+                    if (node._adjacentEdges.length > 0) {
+                         nodeBox += ('<tr>' + 
+                                        '<td colspan="2">Adjacent Edges</td>' +
+                                    '</tr>');
+                        for (var y = 0; y < node._adjacentEdges.length; y++) {
+                            var current = node._adjacentEdges[y]._properties;
+                            if (current.source === node._properties.id){
+                                nodeBox += ('<tr>' +
+                                                '<td>Target: ' + current.target + '</td>' +
+                                                '<td>Type: ' + current.type + 
+                                                '<br />Label: ' + current.label + '</td>' + 
+                                            '</tr>');
+                            }
+                            else {
+                                nodeBox += ('<tr>' +
+                                                '<td>Source: ' + current.source + '</td>' +
+                                                '<td>Type: ' + current.type + 
+                                                '<br />Label: ' + current.label + '</td>' + 
+                                            '</tr>');
+                            }
+                            console.log(current);
+                        }
+                    }
+                        
+                    nodeBox += '</table>';
+                    dataBox.innerHTML = nodeBox;
+                    //console.log(node);
+                    nodeBox = "";
+                }
             };
             //console.log(config);
             alchemy = new Alchemy(config)
-            console.log (alchemy);
+            //console.log (alchemy);
         };
     </script>
 </body>

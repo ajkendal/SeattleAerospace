@@ -5,4 +5,44 @@ html, body{
 }
 .alchemy {
     margin: 0 auto;
+    border: 10px solid; 
+    border-radius: 5px;
+    border-bottom-color: #1a1a1a;
+    border-left-color: #404040;
+    border-right-color: #666666;
+    border-top-color: #999999;
+}
+#data_box {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2%;
+}
+#data_box th, #data_box td {
+    border: 1px solid black;
+    text-align: center;
+    border-collapse: collapse;
+    width: 50%;
+}
+#data_box table {
+    margin: 0 auto;
+    border: 5px solid; 
+    border-radius: 5px;
+    border-bottom-color: #1a1a1a;
+    border-left-color: #404040;
+    border-right-color: #666666;
+    border-top-color: #999999;
+}
+#data_box th {
+    background: #000000;
+    color: #FFFFFF;
+}
+.edgeClass {
+    width: 30%;
+}
+.nodeClass {
+    width: 40%;
+}
+.title_box {
+    text-align: center;
+    padding: 2%;
 }
