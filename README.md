@@ -1,8 +1,20 @@
 # Seattle Aerospace
-Network Graph for Seattle's Aerospace Industry 
+## Network Graph for Seattle's Aerospace Industry 
 
-Resources:
+### Tech-Stack
+* [Alchemy.js](http://graphalchemist.github.io/Alchemy/#/)
+* [Papa Parse](http://papaparse.com)
+* Microsoft Excel
+* [GitHub](https://github.com/ajkendal/SeattleAerospace)
+* HTML
+* CSS
+* JavaScript
+* Ajax
+* jQuery
 
-Alchemy.js - http://graphalchemist.github.io/Alchemy/#/
-Papa Parse - http://papaparse.com
-Microsoft Excel - Excel
+### Design and Implementation
+
+### Upgrading the Application
+
+### Developers
+* Amanda J. Kendal-Brown
