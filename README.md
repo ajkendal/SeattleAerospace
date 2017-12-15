@@ -27,7 +27,8 @@ for (var x = 0; x < nodeTypeKey.length; x++){
       stroke = toFunc(style.borderColor);
   else
       fill = toFunc(style.color);
-}```
+}
+```
  
 ### Tech-Stack
 * [Alchemy.js](http://graphalchemist.github.io/Alchemy/#/)
